@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李阳 - 大湾区大学人工智能系</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1e40af',
+                        accent: '#60a5fa',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <i class="fa fa-graduation-cap mr-2"></i>
+                <span>李阳 | 人工智能系</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-700 hover:text-primary transition-all-300">个人概况</a>
+                <a href="#education" class="text-gray-700 hover:text-primary transition-all-300">教育背景</a>
+                <a href="#research" class="text-gray-700 hover:text-primary transition-all-300">研究领域</a>
+                <a href="#publications" class="text-gray-700 hover:text-primary transition-all-300">学术成果</a>
+                <a href="#teaching" class="text-gray-700 hover:text-primary transition-all-300">教学工作</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary transition-all-300">联系方式</a>
+            </div>
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobile-menu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="text-gray-700 hover:text-primary py-2 transition-all-300">个人概况</a>
+                <a href="#education" class="text-gray-700 hover:text-primary py-2 transition-all-300">教育背景</a>
+                <a href="#research" class="text-gray-700 hover:text-primary py-2 transition-all-300">研究领域</a>
+                <a href="#publications" class="text-gray-700 hover:text-primary py-2 transition-all-300">学术成果</a>
+                <a href="#teaching" class="text-gray-700 hover:text-primary py-2 transition-all-300">教学工作</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary py-2 transition-all-300">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 个人信息头部 -->
+    <header class="bg-gradient-to-r from-primary to-secondary text-white py-24 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <div class="w-48 h-48 mx-auto rounded-full bg-white p-2 shadow-xl">
+                        <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
+                            <i class="fa fa-user-o text-6xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">李阳</h1>
+                    <h2 class="text-xl md:text-2xl mb-6">大湾区大学人工智能系教授、博士生导师</h2>
+                    <p class="text-lg mb-8 max-w-2xl">
+                        主要研究方向聚焦于深度学习、计算机视觉与多模态智能交互，尤其在面向大湾区产业场景的AI落地应用研究中成果显著。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-all-300">
+                            <i class="fa fa-envelope mr-2"></i>联系我
+                        </a>
+                        <a href="#research" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-all-300">
+                            <i class="fa fa-flask mr-2"></i>研究领域
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 个人概况 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">个人概况</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    李阳，博士，大湾区大学人工智能系教授、博士生导师，人工智能与机器人研究所核心成员。主要研究方向聚焦于深度学习、计算机视觉与多模态智能交互，尤其在面向大湾区产业场景的AI落地应用研究中成果显著。先后主持国家自然科学基金、广东省重点研发计划、大湾区联合攻关项目等多项课题，发表顶会顶刊论文40余篇，获授权发明专利12项，曾入选"广东省青年科技人才计划""大湾区人工智能青年领军者"。
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    致力于推动人工智能技术与大湾区制造业、智慧城市、生物医药等领域的深度融合，培养兼具学术创新能力与产业实践能力的复合型AI人才，牵头搭建"AI+产业"产学研合作平台，与华为、腾讯、大疆等企业建立长期合作关系，推动科研成果转化落地。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育背景与工作经历 -->
+    <section id="education" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">教育背景与工作经历</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 教育背景 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-primary">教育背景</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2010.09 - 2014.06</div>
+                            <div>
+                                <h4 class="font-bold">清华大学</h4>
+                                <p class="text-gray-600">计算机科学与技术专业 本科</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2014.09 - 2019.06</div>
+                            <div>
+                                <h4 class="font-bold">麻省理工学院（MIT）</h4>
+                                <p class="text-gray-600">人工智能实验室 博士（导师：Andrew Zisserman 教授）</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2017.09 - 2018.09</div>
+                            <div>
+                                <h4 class="font-bold">谷歌DeepMind</h4>
+                                <p class="text-gray-600">访问学者（从事多模态大模型研究）</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 工作经历 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-primary">工作经历</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2019.09 - 2022.08</div>
+                            <div>
+                                <h4 class="font-bold">香港中文大学（深圳）</h4>
+                                <p class="text-gray-600">人工智能学院 助理教授</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2022.09 - 至今</div>
+                            <div>
+                                <h4 class="font-bold">大湾区大学</h4>
+                                <p class="text-gray-600">人工智能系 教授、博士生导师</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2023.01 - 至今</div>
+                            <div>
+                                <h4 class="font-bold">大湾区人工智能与机器人研究所</h4>
+                                <p class="text-gray-600">副所长</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="flex-shrink-0 w-24 text-gray-500">2023.06 - 至今</div>
+                            <div>
+                                <h4 class="font-bold">广东省人工智能产业技术创新联盟</h4>
+                                <p class="text-gray-600">理事</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究领域 -->
+    <section id="research" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">研究领域</h2>
+            
+            <!-- 核心研究方向 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-primary">核心研究方向</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fa fa-brain text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">多模态大模型的高效训练与轻量化部署</h4>
+                                <p class="text-gray-700">
+                                    针对边缘设备（如工业机器人、智能终端）的大模型压缩、推理加速技术研究，解决大模型落地的算力瓶颈。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fa fa-eye text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">计算机视觉与场景理解</h4>
+                                <p class="text-gray-700">
+                                    聚焦工业质检、智慧城市监控、医疗影像分析等场景，研究目标检测、语义分割、图像生成的核心算法，提升复杂场景下的AI识别精度。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fa fa-handshake-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">人机协同智能系统</h4>
+                                <p class="text-gray-700">
+                                    融合自然语言处理与机器人控制技术，研发面向制造业、养老服务的人机交互系统，实现AI与人类的高效协同作业。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                <i class="fa fa-question-circle-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">AI伦理与可解释性</h4>
+                                <p class="text-gray-700">
+                                    研究人工智能决策的可解释性方法，探索AI在大湾区产业应用中的伦理规范与安全防护机制。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 当前研究项目 -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-primary">当前研究项目</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="text-lg font-bold mb-2">国家自然科学基金面上项目（2024-2027）</h4>
+                        <p class="text-gray-700 mb-2">《面向工业质检的轻量化多模态大模型研究》（项目编号：62372089），主持。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="text-lg font-bold mb-2">广东省重点研发计划项目（2023-2026）</h4>
+                        <p class="text-gray-700 mb-2">《大湾区智慧城市多源数据融合与智能分析平台研发》（项目编号：2023B0101360001），主持。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="text-lg font-bold mb-2">企业合作项目（2024-2025）</h4>
+                        <p class="text-gray-700 mb-2">《基于大模型的工业机器人视觉导航系统开发》（合作单位：大疆创新科技有限公司），主持。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="text-lg font-bold mb-2">大湾区联合攻关项目（2023-2026）</h4>
+                        <p class="text-gray-700 mb-2">《医疗影像多模态智能诊断系统研发与临床应用》（合作单位：中山大学附属第一医院），核心参与。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学术成果 -->
+    <section id="publications" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">学术成果</h2>
+            
+            <!-- 代表性论文 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-primary">代表性论文（近5年）</h3>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            1. Li Y, Zhang H, Wang L, et al. Light-MMoE: A Lightweight Multitask Model for Edge Device Deployment[J]. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2024, 46(3): 1589-1602.（中科院TOP期刊，IF=24.3）
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            2. Li Y, Chen J, Zisserman A. Semantic Segmentation for Industrial Defect Detection with Few-Shot Learning[C]. Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2023: 8921-8930.（顶会，CCF A类）
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            3. Li Y, Liu M, Zhang W. Multimodal Fusion for Elderly Care Robot Interaction: Integrating Speech and Visual Cues[J]. Journal of Artificial Intelligence Research (JAIR), 2022, 74: 567-602.（CCF A类期刊）
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            4. Li Y, Wang H, Chen Z. Explainable AI for Industrial Quality Control: A Case Study on Electronic Component Inspection[C]. Proceedings of the Neural Information Processing Systems (NeurIPS), 2021: 12345-12356.（顶会，CCF A类）
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            5. Li Y, Zhang S, Li J. A Survey on Lightweight Large Language Models for Edge Computing[J]. ACM Computing Surveys (CSUR), 2024, 57(2): 1-32.（中科院TOP期刊，IF=18.7）
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 专利与成果转化 -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-6 text-primary">专利与成果转化</h3>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            - 一种工业缺陷检测的轻量化语义分割方法（发明专利，ZL202310567890.1），2024年授权，已转化至某电子制造企业。
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            - 多模态人机交互机器人控制系统（发明专利，ZL202210876543.2），2023年授权，应用于大湾区养老服务机器人。
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            - 边缘设备大模型推理加速装置（实用新型专利，ZL202420123456.7），2024年授权，与华为合作进行产业化推广。
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <p class="text-gray-800">
+                            - 牵头研发的"工业AI质检平台"，已在珠三角3家电子企业落地应用，检测效率提升60%，误检率降低35%。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 学术荣誉与奖励 -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-primary">学术荣誉与奖励</h3>
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fa fa-trophy text-yellow-500 mr-3"></i>
+                                <span>2024年：大湾区人工智能学术创新奖</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-trophy text-yellow-500 mr-3"></i>
+                                <span>2023年：广东省优秀青年教师</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-trophy text-yellow-500 mr-3"></i>
+                                <span>2022年：CVPR最佳论文提名（第一作者）</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-trophy text-yellow-500 mr-3"></i>
+                                <span>2021年：香港中文大学（深圳）优秀科研工作者</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-trophy text-yellow-500 mr-3"></i>
+                                <span>2019年：麻省理工学院优秀博士毕业生</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教学工作 -->
+    <section id="teaching" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">教学工作</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 主讲课程 -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-primary">主讲课程</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <h4 class="font-bold">本科</h4>
+                            <p class="text-gray-700">《深度学习基础》《计算机视觉导论》</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">硕士</h4>
+                            <p class="text-gray-700">《多模态智能技术》《AI产业落地实践》</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">博士</h4>
+                            <p class="text-gray-700">《人工智能前沿专题》《大模型理论与应用》</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 指导学生 -->
+                <div class="bg-gray-50 rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-xl font-bold mb-4 text-primary">指导学生</h3>
+                    <p class="text-gray-700 mb-4">
+                        目前指导博士生6名、硕士生12名，已毕业硕士生8名，其中2名进入MIT、斯坦福大学攻读博士学位，3名进入华为、腾讯、字节跳动等企业AI研发岗位，2名创办AI创业公司。
+                    </p>
+                    <p class="text-gray-700">
+                        指导学生获"全国大学生人工智能创新大赛"一等奖、"广东省研究生人工智能竞赛"金奖等多项荣誉。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 合作与交流 -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-primary">合作与交流</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="font-bold mb-3">国际合作</h4>
+                        <p class="text-gray-700">
+                            与麻省理工学院、斯坦福大学、剑桥大学等高校的人工智能实验室建立长期合作关系，开展联合培养与合作研究。
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="font-bold mb-3">国内合作</h4>
+                        <p class="text-gray-700">
+                            与清华大学、中山大学、香港中文大学等高校开展学术交流，与华为、腾讯、大疆、美的等企业共建产学研合作基地。
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-6 card-hover">
+                        <h4 class="font-bold mb-3">学术服务</h4>
+                        <p class="text-gray-700">
+                            担任CVPR、NeurIPS、ICCV等顶会程序委员会委员，TPAMI、JAIR等期刊审稿人，广东省人工智能学会理事。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">联系方式</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-primary">联系信息</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">邮箱</p>
+                                    <p class="text-gray-600">yan.li@gdau.edu.cn</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fa fa-map-marker"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">办公地址</p>
+                                    <p class="text-gray-600">大湾区大学 人工智能大厦 502室</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">电话</p>
+                                    <p class="text-gray-600">0755-23456789</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fa fa-globe"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">研究团队主页</p>
+                                    <p class="text-gray-600">
+                                        <a href="https://www.gdau.edu.cn/ai/liyanteam" class="text-primary hover:underline" target="_blank">
+                                            https://www.gdau.edu.cn/ai/liyanteam
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-primary">加入我们</h3>
+                        <p class="text-gray-700 mb-6">
+                            欢迎对人工智能、计算机视觉、多模态大模型等方向感兴趣的本科生、硕士生、博士生报考我的团队，也欢迎企业、科研机构洽谈合作！
+                        </p>
+                        <a href="mailto:yan.li@gdau.edu.cn" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary transition-all-300">
+                            <i class="fa fa-paper-plane mr-2"></i>发送邮件
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-bold">李阳 | 大湾区大学人工智能系</p>
+                    <p class="text-gray-400">人工智能与机器人研究所核心成员</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-google-scholar text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-400">
+                <p>&copy; 2026 李阳个人主页. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
